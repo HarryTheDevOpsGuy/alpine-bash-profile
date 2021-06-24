@@ -67,6 +67,7 @@ RUN mkdir -p /usr/share/entrypoint \
 
 RUN apk add  --no-cache util-linux busybox-extras terraform openssh
 RUN rm -rf /var/cache/apk/*
+EXPOSE 22
 
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
