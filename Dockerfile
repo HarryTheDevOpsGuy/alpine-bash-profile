@@ -68,6 +68,8 @@ RUN mkdir -p /usr/share/entrypoint \
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
+RUN rm -rf /var/cache/apk/* 
+
 # This is the last necessary piece for loading the
 # '/etc/bashrc' file. The 'exec' syntax
 ENTRYPOINT [ "/usr/share/entrypoint.sh" ]
