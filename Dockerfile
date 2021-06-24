@@ -1,5 +1,8 @@
 FROM alpine:3.8
 
+LABEL maintainer="Harry - The DevOps Guy <HarryTheDevOpsGuy@gmail.com>" \
+    python-version=3.8
+
 ENV USERNAME="harry"
 ENV USERGROUP="harry"
 
@@ -13,7 +16,7 @@ WORKDIR /root
 # Details: https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache bash vim sudo
+    && apk add --no-cache bash vim sudo jq curl net-tools aws-cli ansible openssh
 
 # Add a group named "${USERGROUP}"
 #   -g, Assign this ID to the new group
