@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.14
 
 LABEL maintainer="Harry - The DevOps Guy <HarryTheDevOpsGuy@gmail.com>" \
     python-version=3.8
