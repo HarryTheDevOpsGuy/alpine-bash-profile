@@ -65,6 +65,7 @@ ENV BASH_ENV /etc/bashrc
 RUN mkdir -p /usr/share/entrypoint \
     && chown ${USERNAME}:${USERGROUP} /usr/share/entrypoint
 
+RUN apk add  --no-cache util-linux busybox-extras terraform
 RUN rm -rf /var/cache/apk/*
 
 USER ${USERNAME}

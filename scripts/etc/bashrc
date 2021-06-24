@@ -8,7 +8,7 @@
 # Look in '/usr/share/entrypoint.sh' for examples of setting
 # environment variables in the environment immediately
 # after entering the container
-# 
+#
 
 echo
 echo "Welcome $(whoami), from '/etc/bashrc'"
@@ -28,4 +28,7 @@ shopt -q login_shell \
     && echo 'This is a login shell' \
     || echo 'This is not a login shell'
 
-echo 
+echo
+
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
