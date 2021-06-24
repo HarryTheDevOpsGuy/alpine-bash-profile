@@ -16,7 +16,7 @@ WORKDIR /root
 # Details: https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache bash vim sudo jq curl net-tools aws-cli ansible openssh
+    && apk add --no-cache bash vim sudo jq curl net-tools aws-cli ansible
 
 # Add a group named "${USERGROUP}"
 #   -g, Assign this ID to the new group
@@ -65,10 +65,11 @@ ENV BASH_ENV /etc/bashrc
 RUN mkdir -p /usr/share/entrypoint \
     && chown ${USERNAME}:${USERGROUP} /usr/share/entrypoint
 
+RUN rm -rf /var/cache/apk/*
+
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
-RUN rm -rf /var/cache/apk/* 
 
 # This is the last necessary piece for loading the
 # '/etc/bashrc' file. The 'exec' syntax
