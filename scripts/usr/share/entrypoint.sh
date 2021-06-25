@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 echo
 echo "Welcome $(whoami), from '/usr/share/entrypoint.sh'"
 echo
