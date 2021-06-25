@@ -40,6 +40,14 @@ while [[ $# -gt 0 ]]; do
             # harmless but worrisome diagnostic saying as much.
             shift
             ;;
+        sshd)
+            # This is the default command from the Dockerfile if no other
+            # commands or flags are specified. We must handle it, or else
+            # it will be considered an 'unknown_arg' and will print out a
+            # harmless but worrisome diagnostic saying as much.
+            cmd="/usr/sbin/sshd -D"
+            shift
+            ;;
         *)
             # Storing each per line enables easier post-processing,
             # as it obviates the need to handle spaces explicitly
