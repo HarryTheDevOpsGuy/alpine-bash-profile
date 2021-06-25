@@ -69,10 +69,12 @@ RUN apk add  --no-cache util-linux busybox-extras terraform openssh
 RUN rm -rf /var/cache/apk/*
 EXPOSE 22
 
+USER ${USERNAME}
+WORKDIR /home/${USERNAME}
+
+
 # This is the last necessary piece for loading the
 # '/etc/bashrc' file. The 'exec' syntax
 ENTRYPOINT [ "/usr/share/entrypoint.sh" ]
-#USER ${USERNAME}
-#WORKDIR /home/${USERNAME}
 
 CMD ["/usr/sbin/sshd","-D"]

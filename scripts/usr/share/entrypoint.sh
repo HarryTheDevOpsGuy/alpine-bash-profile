@@ -78,4 +78,8 @@ if [ ! -d "/var/run/sshd" ]; then
 fi
 
 # Run the supplied command w/supplied flags and values
-cd $HOME && exec "$cmd"
+if [[ -d $HOME ]]; then
+  cd $HOME
+fi
+
+exec "$cmd"
