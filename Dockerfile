@@ -16,7 +16,7 @@ WORKDIR /root
 # Details: https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache bash vim sudo jq curl net-tools aws-cli ansible
+    && apk add --no-cache bash vim sudo jq curl net-tools aws-cli ansible util-linux busybox-extras terraform openssh
 
 # Add a group named "${USERGROUP}"
 #   -g, Assign this ID to the new group
@@ -65,7 +65,6 @@ ENV BASH_ENV /etc/bashrc
 RUN mkdir -p /usr/share/entrypoint \
     && chown ${USERNAME}:${USERGROUP} /usr/share/entrypoint
 
-RUN apk add  --no-cache util-linux busybox-extras terraform openssh
 RUN rm -rf /var/cache/apk/*
 EXPOSE 22
 
