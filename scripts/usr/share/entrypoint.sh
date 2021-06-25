@@ -82,4 +82,5 @@ if [[ -d $HOME ]]; then
   cd $HOME
 fi
 
-exec "$cmd"
+#exec "$cmd"
+exec "$@"
