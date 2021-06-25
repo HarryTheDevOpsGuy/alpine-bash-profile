@@ -76,4 +76,4 @@ WORKDIR /home/${USERNAME}
 # '/etc/bashrc' file. The 'exec' syntax
 ENTRYPOINT [ "/usr/share/entrypoint.sh" ]
 
-CMD ["/usr/sbin/sshd","-D"]
+CMD ["sshd"]
