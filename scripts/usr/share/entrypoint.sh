@@ -46,7 +46,7 @@ while [[ $# -gt 0 ]]; do
             # it will be considered an 'unknown_arg' and will print out a
             # harmless but worrisome diagnostic saying as much.
             cmd="/usr/sbin/sshd -D"
-            shift
+            shift 2
             ;;
         *)
             # Storing each per line enables easier post-processing,
